@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+
+    <!-- Load willowgarage world -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Load Willow Garage environment -->
+    <include>
+      <uri>file:///usr/share/gazebo-11/worlds/willowgarage.world</uri>
+    </include>
+
+    <!-- VERY IMPORTANT: Load ROS factory plugin -->
+    <plugin name="gazebo_ros_factory" filename="libgazebo_ros_factory.so"/>
+    <plugin name="gazebo_ros_init" filename="libgazebo_ros_init.so"/>
+
+  </world>
+</sdf>

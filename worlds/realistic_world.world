@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="realistic_world">
+
+    <!-- Physics -->
+    <physics type="ode">
+      <gravity>0 0 -9.8</gravity>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+
+    <!-- Scene lighting -->
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.8 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <!-- Sun -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Heightmap Terrain -->
+    <model name="terrain">
+      <static>true</static>
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <heightmap>
+              <uri>file:///home/modini/bumper_ws/src/bumper_bot/worlds/media/terrain.png</uri>
+
+              <!-- Larger safe terrain -->
+              <size>50 50 5</size>
+
+              <pos>0 0 0</pos>
+              <use_terrain_paging>false</use_terrain_paging>
+            </heightmap>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <heightmap>
+              <uri>file:///home/modini/bumper_ws/src/bumper_bot/worlds/media/terrain.png</uri>
+              <size>50 50 5</size>
+              <pos>0 0 0</pos>
+              <use_terrain_paging>false</use_terrain_paging>
+            </heightmap>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+    <!-- Rock obstacle -->
+    <model name="rock1">
+      <pose>5 2 2 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>1</radius>
+            </sphere>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>1</radius>
+            </sphere>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+  </world>
+</sdf>

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+
+    <!-- Load ROS 2 Gazebo system plugins -->
+    <plugin name="gazebo_ros_init" filename="libgazebo_ros_init.so"/>
+    <plugin name="gazebo_ros_factory" filename="libgazebo_ros_factory.so"/>
+
+    <!-- Include original mud world -->
+    <include>
+      <uri>file:///usr/share/gazebo-11/worlds/mud.world</uri>
+    </include>
+
+  </world>
+</sdf>

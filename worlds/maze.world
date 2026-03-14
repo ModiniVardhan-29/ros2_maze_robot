@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.6">
+
+<world name="maze_world">
+
+  <!-- light -->
+  <include>
+    <uri>model://sun</uri>
+  </include>
+
+  <!-- ground -->
+  <include>
+    <uri>model://ground_plane</uri>
+  </include>
+
+  <!-- MAZE MODEL -->
+  <include>
+    <uri>model://maze_model_rs</uri>
+  </include>
+
+</world>
+
+</sdf>

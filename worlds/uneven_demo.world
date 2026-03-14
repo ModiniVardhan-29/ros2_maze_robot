@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="offline_realistic_world">
+
+    <!-- Stable Physics -->
+    <physics type="ode">
+      <gravity>0 0 -9.8</gravity>
+      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>100</iters>
+        </solver>
+      </ode>
+    </physics>
+
+    <scene>
+      <ambient>0.6 0.6 0.6 1</ambient>
+      <background>0.6 0.8 1 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Large Grass Field -->
+    <model name="grass_field">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.25 0.55 0.25 1</ambient>
+            <diffuse>0.3 0.6 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Rolling Hill 1 (Visual Only) -->
+    <model name="hill1">
+      <static>true</static>
+      <pose>-15 10 -5 0 0 0</pose>
+      <link name="link">
+        <visual name="hill_visual">
+          <geometry>
+            <sphere>
+              <radius>12</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.3 0.65 0.3 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Rolling Hill 2 -->
+    <model name="hill2">
+      <static>true</static>
+      <pose>20 -15 -8 0 0 0</pose>
+      <link name="link">
+        <visual name="hill_visual">
+          <geometry>
+            <sphere>
+              <radius>18</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.28 0.6 0.28 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Rock Obstacles -->
+    <model name="rock1">
+      <static>true</static>
+      <pose>3 4 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.6</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.6</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.4 0.4 0.4 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Simple Tree -->
+    <model name="tree1">
+      <static>true</static>
+      <pose>-5 6 0 0 0 0</pose>
+      <link name="link">
+        <!-- Trunk -->
+        <visual name="trunk">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>3</length>
+            </cylinder>
+          </geometry>
+          <pose>0 0 1.5 0 0 0</pose>
+          <material>
+            <ambient>0.4 0.25 0.1 1</ambient>
+          </material>
+        </visual>
+        <!-- Leaves -->
+        <visual name="leaves">
+          <geometry>
+            <sphere>
+              <radius>1.5</radius>
+            </sphere>
+          </geometry>
+          <pose>0 0 3.5 0 0 0</pose>
+          <material>
+            <ambient>0.2 0.6 0.2 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
